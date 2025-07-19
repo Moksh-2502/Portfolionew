@@ -6,6 +6,14 @@ import TiltCard from './TiltCard';
 const ProjectsSection = styled.section`
   padding: 8rem 2rem;
   background-color: #0a192f;
+  
+  @media (max-width: 768px) {
+    padding: 6rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -15,15 +23,27 @@ const SectionTitle = styled.h2`
   text-align: center;
   position: relative;
   display: inline-block;
+  width: 100%;
   
   &::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
     height: 4px;
     background: linear-gradient(to right, #64ffda, transparent);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -35,6 +55,13 @@ const ProjectsContainer = styled.div`
   gap: 2rem;
   
   @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.25rem;
     grid-template-columns: 1fr;
   }
 `;
@@ -52,6 +79,19 @@ const ProjectCard = styled(motion.div)`
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    border-radius: 6px;
+    &:hover {
+      transform: none;
+    }
   }
 `;
 
@@ -77,20 +117,45 @@ const ProjectContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const ProjectTitle = styled.h3`
   font-size: 1.5rem;
   color: #e6f1ff;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.375rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const ProjectDescription = styled.p`
   color: #8892b0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1rem;
   flex: 1;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
 `;
 
 const ProjectTags = styled.div`

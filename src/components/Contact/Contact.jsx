@@ -6,6 +6,14 @@ import emailjs from '@emailjs/browser';
 const ContactSection = styled.section`
   padding: 8rem 2rem;
   background-color: #0a192f;
+  
+  @media (max-width: 768px) {
+    padding: 6rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -25,6 +33,14 @@ const SectionTitle = styled.h2`
     height: 4px;
     background: linear-gradient(to right, #64ffda, transparent);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -38,6 +54,17 @@ const ContactSubtitle = styled.p`
   max-width: 600px;
   margin: 2rem auto;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin: 1.5rem auto;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
 `;
 
 const ContactContainer = styled.div`
@@ -50,6 +77,11 @@ const ContactContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.5rem;
   }
 `;
 
@@ -120,76 +152,120 @@ const ContactForm = styled(motion.form)`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  
+  @media (max-width: 480px) {
+    gap: 1.25rem;
+  }
 `;
 
 const FormGroup = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+  @media (max-width: 480px) {
+    gap: 0.375rem;
+  }
 `;
 
-const Input = styled.input`
-  width: 100%;
+const FormInput = styled.input`
   padding: 1rem;
-  background-color: #112240;
-  border: 1px solid #233554;
-  border-radius: 4px;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 8px;
   color: #e6f1ff;
   font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   
   &:focus {
+    outline: none;
     border-color: #64ffda;
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1);
   }
   
   &::placeholder {
     color: #8892b0;
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
 `;
 
-const Textarea = styled.textarea`
-  width: 100%;
+const FormTextarea = styled.textarea`
   padding: 1rem;
-  background-color: #112240;
-  border: 1px solid #233554;
-  border-radius: 4px;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 8px;
   color: #e6f1ff;
   font-size: 1rem;
-  min-height: 150px;
-  outline: none;
-  transition: border-color 0.3s ease;
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+  transition: all 0.3s ease;
   
   &:focus {
+    outline: none;
     border-color: #64ffda;
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1);
   }
   
   &::placeholder {
     color: #8892b0;
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    min-height: 100px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 90px;
+  }
 `;
 
-const FormSubmitButton = styled(motion.button)`
+const SubmitButton = styled(motion.button)`
   background-color: #64ffda;
   color: #0a192f;
   padding: 1rem 2rem;
-  border: none;
-  border-radius: 4px;
   font-size: 1rem;
   font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
   
   &:hover {
-    background-color: #4ad8b2;
+    background-color: #4ecdc4;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
   
   &:disabled {
     background-color: #8892b0;
     cursor: not-allowed;
     transform: none;
-    box-shadow: none;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
   }
 `;
 
@@ -455,7 +531,7 @@ const Contact = () => {
           animate={controls}
         >
           <FormGroup variants={itemVariants}>
-            <Input 
+            <FormInput 
               type="text" 
               name="name" 
               placeholder="Your Name *" 
@@ -466,7 +542,7 @@ const Contact = () => {
           </FormGroup>
           
           <FormGroup variants={itemVariants}>
-            <Input 
+            <FormInput 
               type="email" 
               name="email" 
               placeholder="Your Email *" 
@@ -477,7 +553,7 @@ const Contact = () => {
           </FormGroup>
           
           <FormGroup variants={itemVariants}>
-            <Input 
+            <FormInput 
               type="text" 
               name="subject" 
               placeholder="Subject" 
@@ -487,7 +563,7 @@ const Contact = () => {
           </FormGroup>
           
           <FormGroup variants={itemVariants}>
-            <Textarea 
+            <FormTextarea 
               name="message" 
               placeholder="Your Message *" 
               value={formData.message}
@@ -496,15 +572,15 @@ const Contact = () => {
             />
           </FormGroup>
           
-          <FormSubmitButton 
+          <SubmitButton
             type="submit"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             disabled={isLoading}
+            whileHover={{ scale: isLoading ? 1 : 1.05 }}
+            whileTap={{ scale: isLoading ? 1 : 0.95 }}
+            variants={itemVariants}
           >
             {isLoading ? 'Sending...' : 'Send Message'}
-          </FormSubmitButton>
+          </SubmitButton>
           
           {formStatus.visible && (
             <StatusMessage 

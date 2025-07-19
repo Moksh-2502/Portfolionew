@@ -21,6 +21,10 @@ const SkillsSection = styled.section`
   @media (max-width: 768px) {
     padding: 6rem 1.5rem;
   }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -42,6 +46,16 @@ const SectionTitle = styled.h2`
     height: 4px;
     background: linear-gradient(to right, #64ffda, transparent);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const PyramidContainer = styled.div`
@@ -51,6 +65,16 @@ const PyramidContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    gap: 2.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.5rem;
+    gap: 2rem;
+  }
 `;
 
 const SkillTier = styled.div`
@@ -62,6 +86,16 @@ const SkillTier = styled.div`
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  
+  @media (max-width: 768px) {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
   
   /* Pyramid effect - wider at bottom */
   ${props => {
@@ -119,13 +153,30 @@ const TierTitle = styled.h3`
   color: #e6f1ff;
   margin-bottom: 0.5rem;
   font-weight: 700;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TierDescription = styled.p`
   color: #8892b0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
 `;
 
 const SkillsGrid = styled.div`
@@ -138,20 +189,40 @@ const SkillsGrid = styled.div`
     if (props.tier === 1) {
       return `
         gap: 1.5rem;
+        @media (max-width: 768px) {
+          gap: 1.25rem;
+        }
+        @media (max-width: 480px) {
+          gap: 1rem;
+        }
       `;
     } else if (props.tier === 2) {
       return `
         gap: 1.2rem;
+        @media (max-width: 768px) {
+          gap: 1rem;
+        }
+        @media (max-width: 480px) {
+          gap: 0.875rem;
+        }
       `;
     }
-    return `gap: 1rem;`;
+    return `
+      gap: 1rem;
+      @media (max-width: 768px) {
+        gap: 0.875rem;
+      }
+      @media (max-width: 480px) {
+        gap: 0.75rem;
+      }
+    `;
   }}
 `;
 
-const SkillBadge = styled.div`
+const SkillBadge = styled(motion.div)`
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
   padding: 1rem 1.5rem;
   border: 2px solid;
   border-radius: 50px;
@@ -163,6 +234,17 @@ const SkillBadge = styled.div`
   &:hover {
     background: rgba(15, 23, 42, 0.7);
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.25rem;
+    gap: 0.625rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+    border-radius: 25px;
+  }
 `;
 
 const SkillIcon = styled.div`
@@ -173,6 +255,18 @@ const SkillIcon = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+  
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 18px;
+    height: 18px;
+    font-size: 1rem;
+  }
 `;
 
 const SkillName = styled.span`
@@ -180,6 +274,14 @@ const SkillName = styled.span`
   color: #e6f1ff;
   font-weight: 500;
   white-space: nowrap;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+  }
 `;
 
 // Skills data organized by proficiency levels (pyramid structure)

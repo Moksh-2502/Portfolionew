@@ -13,6 +13,16 @@ const HeroSection = styled.section`
   padding: 0 2rem;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.75rem;
+  }
 `;
 
 const HeroContent = styled.div`
@@ -20,6 +30,11 @@ const HeroContent = styled.div`
   width: 100%;
   margin: 0 auto;
   z-index: 1;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+    padding: 2rem 0;
+  }
 `;
 
 const SmallText = styled(motion.p)`
@@ -27,6 +42,15 @@ const SmallText = styled(motion.p)`
   font-size: 1.2rem;
   margin-bottom: 1rem;
   font-family: 'Fira Code', monospace;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const BigText = styled(motion.h1)`
@@ -34,9 +58,20 @@ const BigText = styled(motion.h1)`
   font-weight: 700;
   margin-bottom: 1rem;
   color: #f8f8f8;
+  line-height: 1.1;
   
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.75rem;
   }
 `;
 
@@ -45,18 +80,39 @@ const SubText = styled(motion.h2)`
   font-weight: 600;
   margin-bottom: 1rem;
   color: #8892b0;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.25rem;
   }
 `;
 
 const Description = styled(motion.p)`
   max-width: 600px;
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #8892b0;
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 `;
 
 const CTAButton = styled(motion.button)`
@@ -70,9 +126,25 @@ const CTAButton = styled(motion.button)`
   cursor: pointer;
   transition: all 0.3s ease;
   margin-right: 1rem;
+  margin-bottom: 1rem;
   
   &:hover {
     background-color: rgba(100, 255, 218, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+    margin-right: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 200px;
   }
 `;
 
